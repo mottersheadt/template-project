@@ -1,27 +1,33 @@
 <template>
-  <Home msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Navbar></Navbar>
+    <div class="container">
+      <Home v-if="route == '/' || !route" msg="Welcome to Your Vue.js App"/>
+      <Submit v-if="route == '/submit'" msg="Welcome to Your Vue.js App"/>
+    </div>
+  </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
+import Navbar from './components/Navbar.vue'
+import Submit from './components/Submit.vue'
 
 export default {
   name: 'App',
   components: {
-    Home
-  }
-}
-console.log(process.env.VUE_APP_NOT_SECRET_CODE)
+    Home,
+    Navbar,
+    Submit
+  },
 
+  data() {
+    return {
+      route: window.location.pathname
+    }
+  },
+}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

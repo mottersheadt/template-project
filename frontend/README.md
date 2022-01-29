@@ -1,4 +1,4 @@
-# vgs-app
+# app
 
 ## Project setup
 ```
